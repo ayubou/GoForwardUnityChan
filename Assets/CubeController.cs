@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CubeController : MonoBehaviour {
 
+
 	// キューブの移動速度
 	private float speed = -0.2f;
 
@@ -12,6 +13,7 @@ public class CubeController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start(){
+
 	}
 
 	// Update is called once per frame
@@ -25,8 +27,9 @@ public class CubeController : MonoBehaviour {
 		}
 	}
 
-	//衝突検出
 	void OnCollisionEnter2D(Collision2D coll) {
-		Debug.Log("hit Object");
+		if(coll.gameObject.tag == "Cube" || coll.gameObject.tag == "Ground"){
+		gameObject.GetComponent<AudioSource> ().Play ();
+		}
 	}
 }
